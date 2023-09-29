@@ -1,0 +1,22 @@
+
+/* Apply a border to the page container */
+.page-container {
+    border: 10px solid #0c0808;
+    padding: 20px;
+    position: relative; /* Required for positioning the icon */
+  }
+  
+  /* Style the add-customers icon */
+  .add-customers-icon {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: #007bff; /* You can choose your desired icon color */
+  }
+  
+  /* Style the datagrid container */
+  .datagrid-container {
+    margin-top: 40px; /* Add spacing between the icon and the data grid */
+  }
+  

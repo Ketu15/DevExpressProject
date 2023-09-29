@@ -1,0 +1,17 @@
+<p>add-products works!</p>
+<div class="container">
+    <h2>Add a customers</h2>
+    <dx-form [formData]="customersFormData" (onSubmit)="onSubmit()" labelLocation="top" [showColonAfterLabel]="true">
+      
+      <dxi-item dataField="productName" editorType="dxTextBox" editorOptions="{ placeholder: 'Product Name' }"></dxi-item>
+      <dxi-item dataField="unitPrice" editorType="dxTextBox" editorOptions="{ placeholder: 'Price' }"></dxi-item>
+      <dxi-item dataField="package" editorType="dxTextBox" editorOptions="{ placeholder: 'Package' }"></dxi-item>
+      <dxi-item dataField="quantity" editorType="dxTextBox" editorOptions="{ placeholder: 'Quantity' }"></dxi-item>
+      <dxi-item dataField="isDiscontinued" editorType="dxCheckBox" editorOptions="{ placeholder: 'IsDiscontinued' }"></dxi-item>
+
+      <!-- <div class="form-group">
+        <dx-button text="Submit" [useSubmitBehavior]="true"></dx-button>
+      </div> -->
+    </dx-form>
+  </div>
+  <dx-button text="Submit" [useSubmitBehavior]="true" (click)="onSubmit()"></dx-button>

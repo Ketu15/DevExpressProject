@@ -1,0 +1,69 @@
+/* Container with 3D effect */
+.custom-3d-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 100% of the viewport height */
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* Order container with 3D effect */
+.order-container {
+  width: 400px; /* Adjust the width as needed */
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transform: rotateY(15deg);
+  transition: transform 0.3s;
+}
+
+.order-container:hover {
+  transform: rotateY(0deg);
+}
+
+.order-heading {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.order-input {
+  margin-bottom: 10px;
+}
+
+.order-input label {
+  font-weight: bold;
+}
+
+.order-input input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.order-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.place-order-button,
+.cancel-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.place-order-button {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.cancel-button {
+  background-color: #dc3545;
+  color: #fff;
+}
