@@ -1,167 +1,57 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using AppDemo.Models;
-using AppDemo.model;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
-namespace AppDemo.Controllers
+[Route("api/[controller]")]
+[ApiController]
+public class CustomerController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class CustomersController : ControllerBase
+  private readonly AuthService _authService;
+
+  public CustomerController(AuthService authService)
+  {
+    _authService = authService;
+  }
+
+  [HttpPost("Register")]
+  public async Task<IActionResult> Register([FromBody] Customer customer, string password)
+  {
+    try
     {
-        private readonly ApplicatioDbContext _context;
+      // Call AuthService to register the customer
+      var registeredCustomer = await _authService.RegisterAsync(customer, password);
 
-        public CustomersController(ApplicatioDbContext context)
-        {
-            _context = context;
-        }
+      if (registeredCustomer != null)
+      {
+        return Ok(new { message = "Registration successful", customer = registeredCustomer });
+      }
 
-        // GET: api/Customers
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Customer>>> GetCustomers()
-        {
-          if (_context.Customers == null)
-          {
-              return NotFound();
-          }
-            return await _context.Customers.ToListAsync();
-        }
-
-        // GET: api/Customers/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Customer>> GetCustomer(int id)
-        {
-          if (_context.Customers == null)
-          {
-              return NotFound();
-          }
-            var customer = await _context.Customers.FindAsync(id);
-
-            if (customer == null)
-            {
-                return NotFound();
-            }
-
-            return customer;
-        }
-
-    // PUT: api/Customers/5
-    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-    [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateCustomer(int id, [FromBody] Customer updatedCustomerData)
+      return BadRequest(new { message = "Registration failed" });
+    }
+    catch (Exception ex)
     {
-      var customer = await _context.Customers.FindAsync(id);
-      if (customer == null)
-      {
-        return NotFound();
-      }
-
-      // Store the old values in variables
-      var oldUserName = customer.userName;
-      var oldPassword = customer.password;
-      var oldFirstName = customer.firstName;
-      var oldLastName = customer.lastName;
-      var oldCity = customer.city;
-      var oldCountry = customer.country;
-      var oldPhone = customer.phone;
-
-      // Update only the changed values
-      if (!string.IsNullOrEmpty(updatedCustomerData.userName))
-      {
-        customer.userName = updatedCustomerData.userName;
-      }
-
-      if (!string.IsNullOrEmpty(updatedCustomerData.password))
-      {
-        customer.password = updatedCustomerData.password;
-      }
-      if (!string.IsNullOrEmpty(updatedCustomerData.firstName))
-      {
-        customer.firstName = updatedCustomerData.firstName;
-      }
-
-      if (!string.IsNullOrEmpty(updatedCustomerData.lastName))
-      {
-        customer.lastName = updatedCustomerData.lastName;
-      }
-
-      if (!string.IsNullOrEmpty(updatedCustomerData.city))
-      {
-        customer.city = updatedCustomerData.city;
-      }
-
-      if (!string.IsNullOrEmpty(updatedCustomerData.country))
-      {
-        customer.country = updatedCustomerData.country;
-      }
-
-      if (!string.IsNullOrEmpty(updatedCustomerData.phone))
-      {
-        customer.phone = updatedCustomerData.phone;
-      }
-
-      await _context.SaveChangesAsync();
-
-      // Return the updated customer object along with old values
-      var updatedCustomerWithChanges = new
-      {
-        Id = customer.Id,
-        OldUserName = oldUserName,
-        OldPassword = oldPassword,
-        OldFirstName = oldFirstName,
-        OldLastName = oldLastName,
-        OldCity = oldCity,
-        OldCountry = oldCountry,
-        OldPhone = oldPhone,
-        UpdatedCustomer = customer
-      };
-
-      return Ok(updatedCustomerWithChanges);
+      return StatusCode(500, new { message = "Internal server error", error = ex.Message });
     }
+  }
 
-    // POST: api/Customers
-    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-    [HttpPost]
-        public async Task<ActionResult<Customer>> PostCustomer(Customer customer)
-        {
-          if (_context.Customers == null)
-          {
-              return Problem("Entity set 'ApplicatioDbContext.Customers'  is null.");
-          }
-            _context.Customers.Add(customer);
-            await _context.SaveChangesAsync();
+  [HttpPost("Login")]
+  public async Task<IActionResult> Login(string email, string password)
+  {
+    try
+    {
+      // Call AuthService to perform login
+      var token = await _authService.LoginAsync(email, password);
 
-            return CreatedAtAction("GetCustomer", new { id = customer.Id }, customer);
-        }
+      if (!string.IsNullOrEmpty(token))
+      {
+        return Ok(new { message = "Login successful", token });
+      }
 
-        // DELETE: api/Customers/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCustomer(int id)
-        {
-            if (_context.Customers == null)
-            {
-                return NotFound();
-            }
-            var customer = await _context.Customers.FindAsync(id);
-            if (customer == null)
-            {
-                return NotFound();
-            }
-
-            _context.Customers.Remove(customer);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        private bool CustomerExists(int id)
-        {
-            return (_context.Customers?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
+      return Unauthorized(new { message = "Login failed" });
     }
+    catch (Exception ex)
+    {
+      return StatusCode(500, new { message = "Internal server error", error = ex.Message });
+    }
+  }
 }

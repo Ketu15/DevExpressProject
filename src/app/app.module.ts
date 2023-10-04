@@ -25,6 +25,8 @@ import { OrderComponent } from './order/order.component';
 import { OrderListComponent } from './order/order-list/order-list.component';
 import { UploadComponent } from './upload/upload.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +40,8 @@ import { UploadComponent } from './upload/upload.component';
      ProductListComponent,
      OrderListComponent,
      UploadComponent,
+
+
   ],
   imports: [
     BrowserModule,
