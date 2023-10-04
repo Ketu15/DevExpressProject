@@ -95,9 +95,6 @@ namespace AppDemo.Migrations
                     b.Property<bool>("isDiscontinued")
                         .HasColumnType("bit");
 
-                    b.Property<string>("package")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("productName")
                         .HasColumnType("nvarchar(max)");
 
@@ -106,6 +103,9 @@ namespace AppDemo.Migrations
 
                     b.Property<decimal?>("unitPrice")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("url")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

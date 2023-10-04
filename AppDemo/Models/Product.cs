@@ -11,7 +11,7 @@ public partial class Product
 
   public string? productName { get; set; } = null!;
   public decimal? unitPrice { get; set; }
-  public string? package { get; set; }
+  public string? url { get; set; }
   public int quantity { get; set; } 
 
   public bool isDiscontinued { get; set; }

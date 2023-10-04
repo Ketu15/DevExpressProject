@@ -23,6 +23,7 @@ import { AddProductsComponent } from './products/add-products/add-products.compo
 import { OrderComponent } from './order/order.component';
  import { ProductListComponent } from './product-list/product-list.component';
 import { OrderListComponent } from './order/order-list/order-list.component';
+import { UploadComponent } from './upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { OrderListComponent } from './order/order-list/order-list.component';
     OrderComponent,
      ProductListComponent,
      OrderListComponent,
+     UploadComponent,
   ],
   imports: [
     BrowserModule,

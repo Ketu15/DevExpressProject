@@ -55,7 +55,7 @@ namespace AppDemo.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     productName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     unitPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
-                    package = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    url = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     quantity = table.Column<int>(type: "int", nullable: false),
                     isDiscontinued = table.Column<bool>(type: "bit", nullable: false)
                 },

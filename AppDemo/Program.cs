@@ -1,5 +1,7 @@
 using AppDemo.Models;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,12 @@ builder.Services.AddDbContext<ApplicatioDbContext>(options =>
      options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
      ));
 
+builder.Services.Configure<FormOptions>(o =>
+{
+  o.ValueLengthLimit = int.MaxValue;
+  o.MultipartBodyLengthLimit = int.MaxValue;
+  o.MemoryBufferThreshold = int.MaxValue;
+});
 
 builder.Services.AddCors(policy => policy.AddPolicy("corspolicy", build =>
 {
@@ -21,6 +29,13 @@ builder.Services.AddCors(policy => policy.AddPolicy("corspolicy", build =>
 
 var app = builder.Build();
 app.UseCors("corspolicy");
+
+app.UseStaticFiles();
+app.UseStaticFiles(new StaticFileOptions()
+{
+  FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Resources")),
+  RequestPath = new PathString("/Resources")
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

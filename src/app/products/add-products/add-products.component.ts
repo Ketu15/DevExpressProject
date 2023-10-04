@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,12 +8,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-products.component.css']
 })
 export class AddProductsComponent {
-  customersFormData: any = {}; // Object to store form data
+  customersFormData: any = {
+    productName: '',
+    unitPrice: null, // or provide a default value
+    quantity: 0,
+    isDiscontinued: false
+  };
+
+  response = {
+    dbPath: ''
+  };
 
   constructor(private http: HttpClient, private router: Router) {}
 
   onSubmit(): void {
-    // Handle form submission here
+    debugger
     this.http.post('https://localhost:7107/api/products', this.customersFormData).subscribe(
       (response) => {
         console.log('Product added successfully', response);
@@ -25,4 +34,9 @@ export class AddProductsComponent {
       }
     );
   }
+
+  uploadFinished(event: any) {
+    this.customersFormData.url = event.dbPath; // Assuming the image URL is in the dbPath property
+  }
+  
 }

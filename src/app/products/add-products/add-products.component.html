@@ -1,17 +1,28 @@
-<p>add-products works!</p>
 <div class="container">
-    <h2>Add a customers</h2>
-    <dx-form [formData]="customersFormData" (onSubmit)="onSubmit()" labelLocation="top" [showColonAfterLabel]="true">
-      
-      <dxi-item dataField="productName" editorType="dxTextBox" editorOptions="{ placeholder: 'Product Name' }"></dxi-item>
-      <dxi-item dataField="unitPrice" editorType="dxTextBox" editorOptions="{ placeholder: 'Price' }"></dxi-item>
-      <dxi-item dataField="package" editorType="dxTextBox" editorOptions="{ placeholder: 'Package' }"></dxi-item>
-      <dxi-item dataField="quantity" editorType="dxTextBox" editorOptions="{ placeholder: 'Quantity' }"></dxi-item>
-      <dxi-item dataField="isDiscontinued" editorType="dxCheckBox" editorOptions="{ placeholder: 'IsDiscontinued' }"></dxi-item>
+  <h2>Add a Product</h2>
+  <form (ngSubmit)="onSubmit()" #productForm="ngForm">
+    <div class="form-group">
+      <label for="productName">Product Name</label>
+      <input type="text" id="productName" name="productName" [(ngModel)]="customersFormData.productName" placeholder="Product Name" required>
+    </div>
 
-      <!-- <div class="form-group">
-        <dx-button text="Submit" [useSubmitBehavior]="true"></dx-button>
-      </div> -->
-    </dx-form>
-  </div>
-  <dx-button text="Submit" [useSubmitBehavior]="true" (click)="onSubmit()"></dx-button>
+    <div class="form-group">
+      <label for="unitPrice">Price</label>
+      <input type="number" id="unitPrice" name="unitPrice" [(ngModel)]="customersFormData.unitPrice" placeholder="Price">
+    </div>
+
+    <div class="form-group">
+      <label for="quantity">Quantity</label>
+      <input type="number" id="quantity" name="quantity" [(ngModel)]="customersFormData.quantity" placeholder="Quantity" required>
+    </div>
+
+    <div class="form-group">
+      <label for="isDiscontinued">Is Discontinued</label>
+      <input type="checkbox" id="isDiscontinued" name="isDiscontinued" [(ngModel)]="customersFormData.isDiscontinued">
+    </div>
+
+    <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
+
+    <button type="submit" [disabled]="!productForm.valid">Submit</button>
+  </form>
+</div>

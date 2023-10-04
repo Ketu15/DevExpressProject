@@ -28,7 +28,9 @@ export class ProductListComponent implements OnInit {
     })
   }
   
-
+  public createImgPath = (serverPath: string) => { 
+    return `https://localhost:7107/${serverPath}`; 
+  }
 
 
 //   addToOrder(product: Product): void {

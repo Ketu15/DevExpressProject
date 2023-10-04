@@ -27,7 +27,7 @@ export class OrderComponent {
     id:0,
     productName: '',
     unitPrice: 0,
-  package: '',
+  url: '',
   quantity:0 ,
   isDiscontinued: true,
   };

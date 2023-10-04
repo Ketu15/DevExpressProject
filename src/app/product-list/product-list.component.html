@@ -10,7 +10,7 @@
                 <!-- <th>Product id</th> -->
                 <th>Product Name</th>
                 <th>Unit Price</th>
-                <th>Package</th>
+                <th>Images</th>
                 <th>Quantity</th>
                 <th>Is Discontinued</th>
                 <th></th>
@@ -21,7 +21,7 @@
                 <!-- <td>{{ Product.id }}</td> -->
                 <td>{{ Product.productName }}</td>
                 <td>{{ Product.unitPrice }}</td>
-                <td>{{ Product.package }}</td>
+                <td><img [src]="createImgPath(Product.url)" alt="profile picture" style="width:100px; height:100px;"></td>
                 <td>{{ Product.quantity }}</td>
                 <td>
                     <label class="checkbox-container">

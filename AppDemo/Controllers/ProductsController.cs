@@ -67,7 +67,7 @@ namespace AppDemo.Controllers
       // Store the old values in variables
       var oldProductName = product.productName;
       var oldUnitPrice = product.unitPrice;
-      var oldPackage = product.package;
+      var oldUrl = product.url;
       var oldQuantity = product.quantity;
       var oldIsDiscontinued = product.isDiscontinued;
 
@@ -82,9 +82,9 @@ namespace AppDemo.Controllers
         product.unitPrice = updatedProductData.unitPrice;
       }
 
-      if (!string.IsNullOrEmpty(updatedProductData.package))
+      if (!string.IsNullOrEmpty(updatedProductData.url))
       {
-        product.package = updatedProductData.package;
+        product.url = updatedProductData.url;
       }
       if (updatedProductData.quantity > 0)
       {
@@ -110,7 +110,7 @@ namespace AppDemo.Controllers
         Id = product.Id,
         OldProductName = oldProductName,
         OldUnitPrice = oldUnitPrice,
-        OldPackage = oldPackage,
+        OldUrl = oldUrl,
         OldQuantity = oldQuantity,
         OldIsDiscontinued = oldIsDiscontinued,
       };
