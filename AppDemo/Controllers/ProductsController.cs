@@ -153,8 +153,7 @@ namespace AppDemo.Controllers
             return NoContent();
         }
 
-    //changes
-    //ketan
+
     private bool ProductExists(int id)
         {
             return (_context.Products?.Any(e => e.Id == id)).GetValueOrDefault();
