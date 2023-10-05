@@ -20,6 +20,7 @@ export class OrderListComponent implements OnInit {
   }
 
   fetchData(): void {
+    debugger
     this.orderService.getItems().subscribe(data => {
     this.gridData = this.orderService.getItems()
     });

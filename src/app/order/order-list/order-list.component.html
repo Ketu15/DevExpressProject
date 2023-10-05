@@ -16,7 +16,7 @@
       [repaintChangesOnly]="true"
       [columnMinWidth]="50"
       [columnAutoWidth]="true"
-      [editing]="{ mode: 'popup', allowUpdating: true, allowDeleting: true, allowAdding: false }"
+      [editing]="{ mode: 'popup', allowUpdating: true, allowDeleting: true, allowAdding: false , useIcons: true}"
       (onRowRemoving)="deleteOrder($event)"
       (onRowUpdating)="updateOrder($event)"
       class="custom-datagrid"    >
@@ -52,7 +52,7 @@
     </dxi-column> -->
     <dxi-column dataField="product_Id" dataType="string">
     </dxi-column>
-    <dxi-column dataField="cus_Id" dataType="string" ></dxi-column>
+    <!-- <dxi-column dataField="cus_Id" dataType="string" ></dxi-column> -->
     <dxi-column dataField="orderDate" dataType="date">
     </dxi-column>
     <dxi-column dataField="unitPrice" dataType="number">
@@ -64,6 +64,4 @@
     <!-- Add more columns as needed -->
   </dx-data-grid>
  
-
-
 

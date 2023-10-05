@@ -45,10 +45,9 @@ export class OrderComponent {
         .subscribe({
           next:(response) => {
             this.productdata = response;
+            
             var testt = this.productdata.unitPrice;
-
-
-       
+     
             localStorage.removeItem('productId')
             localStorage.removeItem('unitprice')
             localStorage.setItem('unitprice', testt.toString());
@@ -83,12 +82,18 @@ export class OrderComponent {
     var a=localStorage.getItem("unitprice");
     this.orderdata.unitPrice = a as string;
     this.orderdata.product_Id=b as string;
+
+    var d=this.productdata.id;
+
+    this.orderdata.product_Id=d.toString();
+    this.orderdata.product_Id=this.productdata.productName;
+
     // Send the order data to the backend to create an order.
     this.http.post<any>('https://localhost:7107/api/orders', this.orderdata).subscribe(
       (data) => {
-        this.router.navigate(['products']);
+        this.router.navigate(['order-list']);
         // Handle the response and any additional actions.
-      },
+      },  
       
       (error) => {
         console.error(error);

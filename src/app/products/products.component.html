@@ -12,7 +12,7 @@
       [repaintChangesOnly]="true"
       [columnMinWidth]="50"
       [columnAutoWidth]="true"
-      [editing]="{ mode: 'popup', allowUpdating: true, allowDeleting: true, allowAdding: false }"
+      [editing]="{ mode: 'popup', allowUpdating: true, allowDeleting: true, allowAdding: false , useIcons: true}"
       (onRowRemoving)="deleteProduct($event)"
       (onRowUpdating)="updateProduct($event)"
       class="custom-datagrid"

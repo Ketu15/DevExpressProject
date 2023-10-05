@@ -9,6 +9,7 @@ using AppDemo.Models;
 using AppDemo.model;
 using Microsoft.IdentityModel.Tokens;
 using System.Globalization;
+using Microsoft.Data.SqlClient;
 
 namespace AppDemo.Controllers
 {
@@ -121,8 +122,25 @@ namespace AppDemo.Controllers
           {
               return Problem("Entity set 'ApplicatioDbContext.Orders'  is null.");
           }
-            _context.Orders.Add(order);
-            await _context.SaveChangesAsync();
+            
+
+           string constring = "Server=NAROLA-55\\SQLEXPRESS2022;Database=Sample3;User=sa;Password=1234567890;Trusted_Connection=True;TrustServerCertificate=True";
+           SqlConnection con = new SqlConnection(constring);
+           string pname = "decrease1";
+           con.Open();
+      SqlCommand sqlCommand = new SqlCommand(pname, con);
+      sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+      sqlCommand.Parameters.AddWithValue("productName", order.product_Id);
+      sqlCommand.Parameters.AddWithValue("customer", order.cus_Id);
+      sqlCommand.Parameters.AddWithValue("Data", order.orderDate);
+      sqlCommand.Parameters.AddWithValue("price", order.unitPrice);
+      sqlCommand.Parameters.AddWithValue("Qty", order.quantity);
+      sqlCommand.ExecuteNonQuery();
+      con.Close();
+
+
+      _context.Orders.Add(order);
+           await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetOrder", new { id = order.Id }, order);
         }

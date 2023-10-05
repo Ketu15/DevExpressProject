@@ -13,7 +13,7 @@
       [repaintChangesOnly]="true"
       [columnMinWidth]="50"
       [columnAutoWidth]="true"
-      [editing]="{ mode: 'popup', allowUpdating: true, allowDeleting: true, allowAdding: false }"
+      [editing]="{ mode: 'popup', allowUpdating: true, allowDeleting: true, allowAdding: false, useIcons: true }"
       (onRowRemoving)="deleteCustomer($event)"
       (onRowUpdating)="updateCustomer($event)"
     >
