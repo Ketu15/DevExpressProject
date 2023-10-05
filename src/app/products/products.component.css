@@ -19,3 +19,11 @@
 .datagrid-container {
   margin-top: 40px; /* Add spacing between the icon and the data grid */
 }
+/* Add custom styles to your DataGrid */
+.custom-datagrid {
+  font-size: 14px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+}
+
+  

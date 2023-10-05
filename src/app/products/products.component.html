@@ -52,12 +52,12 @@
     <dxi-column dataField="url" caption="Image" [width]="100">
       <div *dxTemplate="let data of 'cellTemplate'">
         <ng-container *ngIf="data.data.url">
-          <img [src]="data.data.url" alt="Product Image" width="50" height="50">
+          <img [src]="data.data.url" alt="Product Image" class="product-image">
         </ng-container>
       </div>
     </dxi-column>
     
-    
+
     <dxi-column dataField="quantity" dataType="number">
     </dxi-column>
     <dxi-column dataField="isDiscontinued" dataType="boolean" >

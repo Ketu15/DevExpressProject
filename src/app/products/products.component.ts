@@ -30,25 +30,7 @@ export class ProductsComponent implements OnInit {
     this.selectedProduct = selectedItems.selectedRowsData[0];
   }
 
-  // placeOrder(): void {
-  //   if (this.selectedProduct) {
-  //     const orderData = {
-  //       productId: this.selectedProduct.product_Id,
-  //       price: this.selectedProduct.unitPrice,
-  //       // Include other order-related data here
-  //     };
-  
-  //     this.http.post('https://localhost:7107/api/orders', orderData).subscribe(
-  //       (response) => {
-  //         console.log('Order placed successfully', response);
-  //         // Optionally, update the UI or perform other actions after placing the order
-  //       },
-  //       (error) => {
-  //         console.error('Order placement failed', error);
-  //       }
-  //     );
-  //   }
-  // }
+ 
   updateProduct(event: any): void {
     debugger;
     if (event.key && this.fetchData) {
@@ -63,7 +45,6 @@ export class ProductsComponent implements OnInit {
         .subscribe(
           (response) => {
             console.log('Update successful', response);
-            // Optionally, update the displayed data to reflect the changes
             this.fetchData();
           },
           (error) => {
