@@ -1,41 +1,20 @@
-
-<header>
-    <nav class="sidebar" class="navbar navbar-expand-lg navbar-dark bg-dark ">
-        <!-- navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-black border-bottom box-shadow mb-3"
-     -->
-      <div class="container">
-        <a class="navbar-brand" [routerLink]="['/']">DemoNew</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target=".navbar-collapse"
-          aria-label="Toggle navigation"
-          [attr.aria-expanded]="isExpanded"
-          (click)="toggle()"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div
-          class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
-          [ngClass]="{ show: isExpanded }"
-        >
-          <ul class="navbar-nav flex-grow">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page"
-                 routerLink="customers">customers</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page"
-                 routerLink="add-customers">Add </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page"
-                 routerLink="products">product</a>
-              </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-  
+<div class="pies-container">
+  <dx-pie-chart
+    class="pie"
+    [title]="'Total Unit Prices'"
+    [palette]="['#5E4FA2', '#66C2A5', '#FC8D62', '#8DA0CB', '#E78AC3']"
+    [dataSource]="piesData"
+    sizeGroup="piesGroup"
+  >
+    <dxi-series argumentField="productName" valueField="unitPrice">
+      <dxo-label [visible]="true" format="percent"></dxo-label>
+    </dxi-series>
+    <dxo-legend
+      verticalAlignment="bottom"
+      horizontalAlignment="center"
+      itemTextPosition="right"
+      [rowCount]="2"
+    >
+    </dxo-legend>
+  </dx-pie-chart>
+</div>

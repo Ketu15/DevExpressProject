@@ -5,7 +5,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomersComponent } from './customers/customers.component';
-import { DxCheckBoxModule, DxFormModule,DxDataGridModule, DxDrawerModule, DxListModule, DxMenuModule, DxButtonModule, DxPivotGridModule, DxSelectBoxModule, DxHtmlEditorModule } from 'devextreme-angular';
+import { DxCheckBoxModule, DxFormModule,DxDataGridModule, DxDrawerModule, DxListModule, DxMenuModule, DxButtonModule, DxPivotGridModule, DxSelectBoxModule, DxHtmlEditorModule, DxTextBoxModule, DxFileUploaderModule, DxPieChartModule } from 'devextreme-angular';
 import { AddCustomersComponent } from './add-customers/add-customers.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -46,6 +46,7 @@ import { UploadComponent } from './upload/upload.component';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    DxPieChartModule,
     BrowserAnimationsModule,
     MatSidenavModule,
     MatToolbarModule,
@@ -64,6 +65,8 @@ import { UploadComponent } from './upload/upload.component';
     DxButtonModule,
     DxCheckBoxModule,
     DxHtmlEditorModule,
+    DxTextBoxModule,
+    DxFileUploaderModule,
     FormsModule,
     RouterModule.forRoot([
       { path: 'customers', component: CustomersComponent },

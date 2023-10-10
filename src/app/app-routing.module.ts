@@ -7,6 +7,7 @@ import { AddProductsComponent } from './products/add-products/add-products.compo
 import { OrderComponent } from './order/order.component';
  import { ProductListComponent } from './product-list/product-list.component';
 import { OrderListComponent } from './order/order-list/order-list.component';
+import { NavMenuComponent } from './nav-menu/nav-menu.component';
 
 
 
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'product-list', component: ProductListComponent },
   { path: 'order/:id', component: OrderComponent },
   { path: 'order-list', component: OrderListComponent },
+  { path: 'nav-menu', component: NavMenuComponent },
 
 ];
 

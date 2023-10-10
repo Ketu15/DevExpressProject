@@ -49,17 +49,28 @@
     <dxi-column dataField="productName" dataType="string">
     </dxi-column>
     <dxi-column dataField="unitPrice" dataType="number" ></dxi-column>
-    <dxi-column dataField="url" caption="Image" [width]="100">
+
+    <!-- <dxi-column dataField="url" dataType="string">
+    </dxi-column> -->
+    
+    <dxi-column dataField="url" dataType="string">
+      <div *dxTemplate="let data of 'cellTemplate'">
+        <img [src]="data.data.url" alt="Product Image" class="product-image">
+      </div>
+    </dxi-column>
+    
+     <dxi-column dataField="quantity" dataType="number">
+    </dxi-column>
+    <dxi-column dataField="isDiscontinued" dataType="boolean" >    
+    </dxi-column>   
+
+  </dx-data-grid>
+ 
+
+      <!-- <dxi-column dataField="url" caption="Image" [width]="100">
       <div *dxTemplate="let data of 'cellTemplate'">
         <ng-container *ngIf="data.data.url">
           <img [src]="data.data.url" alt="Product Image" class="product-image">
         </ng-container>
       </div>
-    </dxi-column>
-     <dxi-column dataField="quantity" dataType="number">
-    </dxi-column>
-    <dxi-column dataField="isDiscontinued" dataType="boolean" >    
-    </dxi-column>   
-    <!-- Add more columns as needed -->
-  </dx-data-grid>
- 
+    </dxi-column> -->

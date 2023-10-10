@@ -7,6 +7,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
+  getPieChartData() {
+    throw new Error('Method not implemented.');
+  }
   private apiUrl = 'https://localhost:7107/api/products'; // Replace with your API URL
 
   constructor(private http: HttpClient) {}

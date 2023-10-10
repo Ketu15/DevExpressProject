@@ -39,4 +39,7 @@ export class AddProductsComponent {
     this.customersFormData.url = event.dbPath; // Assuming the image URL is in the dbPath property
   }
   
+  goBack() {
+    this.router.navigate(['/product']);
+  }
 }

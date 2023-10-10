@@ -1,44 +1,32 @@
-/* .sidebar {
-  width: 250px; 
-  background-color: #333;
-  color: #fff;
-  padding-top: 200px;
+/* Add this CSS to your styles.css or equivalent file */
+
+.pies-container {
+  margin: auto;
+  width: 800px;
 }
 
-.sidebar ul {
-  list-style-type: none;
-  padding: 0;
+.pies-container > .pie {
+  width: 400px;
+  float: left;
 }
 
-.sidebar li {
-  margin-bottom: 10px;
+/* Custom color palette */
+.dx-theme-generic.material.piechart .dxc-series:nth-child(1) {
+  fill: #5E4FA2; /* Dark Purple */
 }
 
-.sidebar a {
-  color: #fff;
-  text-decoration: none;
-  padding: 5px;
-  display: block;
+.dx-theme-generic.material.piechart .dxc-series:nth-child(2) {
+  fill: #66C2A5; /* Green */
 }
 
-.sidebar a:hover {
-  background-color: #555;
-} */
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+.dx-theme-generic.material.piechart .dxc-series:nth-child(3) {
+  fill: #FC8D62; /* Orange */
 }
 
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.dx-theme-generic.material.piechart .dxc-series:nth-child(4) {
+  fill: #8DA0CB; /* Light Purple */
 }
 
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+.dx-theme-generic.material.piechart .dxc-series:nth-child(5) {
+  fill: #E78AC3; /* Pink */
 }

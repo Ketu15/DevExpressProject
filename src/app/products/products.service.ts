@@ -16,6 +16,10 @@ export class ProductsService {
   //   return this.baseUrl;
   // }
 
+  getPieChartData(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}`);
+  }
+
   getItems(): Observable<any[]> {
     return this.http.get<any[]>(('https://localhost:7107/api/products'));
   }
