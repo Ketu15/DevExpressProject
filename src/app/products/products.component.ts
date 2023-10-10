@@ -13,6 +13,8 @@ export class ProductsComponent implements OnInit {
   gridData:  any;
   products: any[] = [];
   selectedProduct: any = null;
+  uploadedImageUrl: string = '';
+
 
   constructor(private productsService: ProductsService, private http: HttpClient) {}
 
@@ -26,10 +28,16 @@ export class ProductsComponent implements OnInit {
     });
   }
 
+  onImageUploadFinished(event: string) {
+    this.uploadedImageUrl = event;
+  }
+  
   onSelectionChanged(selectedItems: any): void {
     this.selectedProduct = selectedItems.selectedRowsData[0];
   }
-
+  public createImgPath = (serverPath: string) => { 
+    return `https://localhost:7107/${serverPath}`; 
+  }
  
   updateProduct(event: any): void {
     debugger;
@@ -45,6 +53,7 @@ export class ProductsComponent implements OnInit {
         .subscribe(
           (response) => {
             console.log('Update successful', response);
+            // Optionally, update the displayed data to reflect the changes
             this.fetchData();
           },
           (error) => {
@@ -63,7 +72,7 @@ export class ProductsComponent implements OnInit {
       // const newupdatedCustomer = event.newData as Product;
       const customerId = event.key.toString(); // Ensure event.key is converted to a string if it's a number
   
-      console.log('Updating customer with ID:', customerId);
+      console.log('Updating customer with I20D:', customerId);
       //console.log('Updated customer data:', updatedCustomer);
   
       this.productsService.getProduct(customerId)

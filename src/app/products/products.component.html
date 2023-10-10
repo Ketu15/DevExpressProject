@@ -15,8 +15,8 @@
       [editing]="{ mode: 'popup', allowUpdating: true, allowDeleting: true, allowAdding: false , useIcons: true}"
       (onRowRemoving)="deleteProduct($event)"
       (onRowUpdating)="updateProduct($event)"
-      class="custom-datagrid"
-    >
+      class="custom-datagrid" >
+      
       <dxo-paging [pageSize]="10">
         <ng-template *dxTemplate="let data of 'pager'">
           <div class="dx-page-size">
@@ -56,14 +56,10 @@
         </ng-container>
       </div>
     </dxi-column>
-    
-
-    <dxi-column dataField="quantity" dataType="number">
+     <dxi-column dataField="quantity" dataType="number">
     </dxi-column>
-    <dxi-column dataField="isDiscontinued" dataType="boolean" >
-    
-    </dxi-column>
-   
+    <dxi-column dataField="isDiscontinued" dataType="boolean" >    
+    </dxi-column>   
     <!-- Add more columns as needed -->
   </dx-data-grid>
  

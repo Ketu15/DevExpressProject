@@ -6,4 +6,5 @@ export interface Product {
   url: string;
   quantity: number;
   isDiscontinued: boolean;
+  newImageUrl?: File;
 }
