@@ -1,6 +1,5 @@
-
+<hr/>
 <div class="page-container">
-  <!-- Add customer icon on the upper right side -->
   <a routerLink="/add-customers" class="add-customers-icon"><i class="fas fa-user-plus"></i></a>
 
   <div class="datagrid-container">
@@ -15,13 +14,14 @@
       [columnAutoWidth]="true"
       [editing]="{ mode: 'popup', allowUpdating: true, allowDeleting: true, allowAdding: false, useIcons: true }"
       (onRowRemoving)="deleteCustomer($event)"
-      (onRowUpdating)="updateCustomer($event)"
-    >
+      (onRowUpdating)="updateCustomer($event)">
+
       <dxo-paging [pageSize]="10">
         <ng-template *dxTemplate="let data of 'pager'">
           <div class="dx-page-size">
             <span class="dx-page-size-text">Page Size:</span>
-            <dx-select-box [dataSource]="[10, 20, 50]" [(value)]="data.pageSize"></dx-select-box>
+            <dx-select-box [dataSource]="[10, 20, 50]" [(value)]="data.pageSize">
+            </dx-select-box>
           </div>
           <div class="dx-info">
             <span class="dx-info-text">Page <strong>{{ data.pageIndex + 1 }}</strong> of <strong>{{ data.pageCount }}</strong></span>
@@ -33,25 +33,30 @@
 
       <dxo-pager
         [showPageSizeSelector]="true"
-        [allowedPageSizes]="[10, 25, 50, 100]"
-      ></dxo-pager>
+        [allowedPageSizes]="[10, 25, 50, 100]">
+      </dxo-pager>
 
       <dxo-search-panel
         [visible]="true"
-        [highlightCaseSensitive]="true"
-      ></dxo-search-panel>
+        [highlightCaseSensitive]="true">
+      </dxo-search-panel>
 
-      <dxo-header-filter [visible]="true"></dxo-header-filter>
-
-      <!-- Define your data columns here -->
-      <dxi-column dataField="userName" dataType="string"></dxi-column>
-      <dxi-column dataField="password" dataType="string"></dxi-column>
-      <dxi-column dataField="firstName" dataType="string"></dxi-column>
-      <dxi-column dataField="lastName" dataType="string"></dxi-column>
-      <dxi-column dataField="city" dataType="string"></dxi-column>
-      <dxi-column dataField="country" dataType="string"></dxi-column>
-      <dxi-column dataField="phone" dataType="string"></dxi-column>
-      <!-- Add more columns as needed -->
+      <dxo-header-filter [visible]="true">
+      </dxo-header-filter>
+      <dxi-column dataField="userName" dataType="string">
+      </dxi-column>
+      <dxi-column dataField="password" dataType="string">
+      </dxi-column>
+      <dxi-column dataField="firstName" dataType="string">
+      </dxi-column>
+      <dxi-column dataField="lastName" dataType="string">
+      </dxi-column>
+      <dxi-column dataField="city" dataType="string">
+      </dxi-column>
+      <dxi-column dataField="country" dataType="string">
+      </dxi-column>
+      <dxi-column dataField="phone" dataType="string">
+      </dxi-column>
     </dx-data-grid>
   </div>
 </div>

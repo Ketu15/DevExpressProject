@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class AddProductsComponent {
   customersFormData: any = {
     productName: '',
-    unitPrice: null, // or provide a default value
+    unitPrice: null, 
     quantity: 0,
     isDiscontinued: false
   };
@@ -27,7 +27,6 @@ export class AddProductsComponent {
       (response) => {
         console.log('Product added successfully', response);
         this.router.navigate(['products']);
-        // Optionally, you can reset the form here.
       },
       (error) => {
         console.error('Error adding product', error);
@@ -36,7 +35,7 @@ export class AddProductsComponent {
   }
 
   uploadFinished(event: any) {
-    this.customersFormData.url = event.dbPath; // Assuming the image URL is in the dbPath property
+    this.customersFormData.url = event.dbPath; 
   }
   
   goBack() {

@@ -1,28 +1,24 @@
-/* Apply a border to the page container */
+
 .page-container {
   border: 10px solid #0c0808;
   padding: 20px;
-  position: relative; /* Required for positioning the icon */
+  position: relative; 
 }
 
-/* Style the datagrid container */
 .datagrid-container {
-  margin-top: 40px; /* Add spacing between the icon and the data grid */
+  margin-top: 40px; 
 }
 
-/* Add custom styles to your DataGrid */
 .custom-datagrid {
   font-size: 14px;
   border: 2px solid #ddd;
   border-radius: 4px;
 }
 
-/* Center-align the content in all cells of the DataGrid */
 .custom-datagrid .dx-datagrid-rowsview .dx-row .dx-data-cell {
   text-align: center;
 }
 
-/* Center-align the content in the header cells of the DataGrid */
 .custom-datagrid .dx-datagrid-headers .dx-header-row .dx-datagrid-text-content {
   text-align: center;
 }

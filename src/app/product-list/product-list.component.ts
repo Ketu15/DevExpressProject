@@ -9,8 +9,7 @@ import { Product } from '../models/products.model';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-    products: any[] = []; // Your list of products
-
+  products: any[] = []; 
   
   constructor(private productService: ProductService) {}
 
@@ -31,35 +30,4 @@ export class ProductListComponent implements OnInit {
   public createImgPath = (serverPath: string) => { 
     return `https://localhost:7107/${serverPath}`; 
   }
-
-
-//   addToOrder(product: Product): void {
-//     // Implementation of the addToOrder method
-  
-//     // Assuming you have an order object to store products in
-//     const orderItem: OrderItem = {
-//       productId: product.id,
-//       unitPrice: product.unitPrice,
-//       quantity: 1,
-//       id: 0
-//     };
-  
-//     // If the order object doesn't exist, create it
-//     if (!this.order) {
-//       this.order = {
-//         customerId: 1, // Replace with the actual customer ID
-//         totalAmount: 0,
-//         orderItems: [],
-//       };
-//     }
-  
-//     // Add the order item to the order
-//     this.order.orderItems.push(orderItem);
-  
-//     // Calculate the total amount
-//     this.order.totalAmount += orderItem.unitPrice;
-  
-//     // Optionally, you can update the UI or perform other actions here
-//   }
-  
 }

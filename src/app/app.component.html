@@ -1,87 +1,33 @@
-<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="#">Books Angular</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page"
-             routerLink="customers">customers</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page"
-             routerLink="add-customers">Add </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page"
-             routerLink="edit-customers">Edit List</a>
-          </li> -->
-           <!--<li class="nav-item">
-            <a class="nav-link active" aria-current="page"
-             routerLink="orders/insert">Order Add</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page"
-             routerLink="rentbook">Rent List</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page"
-             routerLink="rentbook/Buy">RentBook Add</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page"
-             routerLink="register">Register </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page"
-             routerLink="login">Login </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page"
-             routerLink="user/add">Login user</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page"
-             routerLink="user/edit">Login user</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page"
-             routerLink="register/user/list">Login user</a>
-          </li> -->
-
-
-        <!-- </ul>
-      </div>
-    </div>
-  </nav>
-<router-outlet></router-outlet>  -->
+<!-- app.component.html -->
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <button mat-icon-button>
-      <mat-icon (click)="sidenav.toggle();"> menu </mat-icon>
-    </button>&nbsp;&nbsp;&nbsp;
-    <h1> DevAng</h1>
+    <button mat-icon-button (click)="sidenav.toggle();">
+      <mat-icon>home</mat-icon>
+    </button>&nbsp;&nbsp;
+    <h1 class="app-title">DevAng</h1>
   </mat-toolbar-row>
-  </mat-toolbar>
-  <mat-sidenav-container>
-    <mat-sidenav #sidenav>
-      <mat-nav-list >
-        <a mat-list-item routerLink="nav-menu"> DashBoard</a>
-        <a mat-list-item routerLink="customers"> Customers</a>
-        <a mat-list-item routerLink="registration">registration </a>
-        <a mat-list-item routerLink="products">Product</a>
-        <!-- <a mat-list-item routerLink="add-products">Add product </a> -->
-        <a mat-list-item routerLink="product-list">Shop Now </a>
-        <a mat-list-item routerLink="order-list">Your Orders </a>
-        <a mat-list-item> Other</a>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <div style="height: 88vh;">
-        <router-outlet></router-outlet>
-      </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+</mat-toolbar>
+
+<mat-sidenav-container >
+  <mat-sidenav #sidenav (click)="sidenav.toggle()">
+    <mat-nav-list>
+      <a mat-list-item routerLink="nav-menu"> Dashboard</a>
+      <a mat-list-item routerLink="customers"> Customers</a>
+      <!-- <a mat-list-item routerLink="registration"> Registration</a> -->
+      <a mat-list-item routerLink="products"> Product</a>
+      <!-- <a mat-list-item routerLink="add-products"> Add product</a> -->
+      <a mat-list-item routerLink="product-list"> Shop Now</a>
+      <a mat-list-item routerLink="order-list"> Your Orders</a>
+      <a mat-list-item> Other</a>
+    </mat-nav-list>
+  </mat-sidenav>
   
+  <mat-sidenav-content>
+    <div style="height: 88vh;">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+

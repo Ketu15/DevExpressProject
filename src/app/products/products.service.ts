@@ -8,13 +8,9 @@ import { Product } from '../models/products.model';
 })
 export class ProductsService {
 
-  private baseUrl = 'https://localhost:7107/api/products'; // Replace with your API URL
+  private baseUrl = 'https://localhost:7107/api/products'; 
 
   constructor(private http: HttpClient) {}
-
-  // getBaseUrl(): string {
-  //   return this.baseUrl;
-  // }
 
   getPieChartData(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}`);

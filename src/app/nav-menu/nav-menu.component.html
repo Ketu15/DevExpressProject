@@ -1,20 +1,72 @@
-<div class="pies-container">
-  <dx-pie-chart
-    class="pie"
-    [title]="'Total Unit Prices'"
-    [palette]="['#5E4FA2', '#66C2A5', '#FC8D62', '#8DA0CB', '#E78AC3']"
-    [dataSource]="piesData"
-    sizeGroup="piesGroup"
-  >
-    <dxi-series argumentField="productName" valueField="unitPrice">
-      <dxo-label [visible]="true" format="percent"></dxo-label>
+<div class="charts-container">
+  <div class="top-left">
+    <dx-pie-chart
+      class="pie"
+      [title]="'Total Unit Prices'"
+      [palette]="['#5E4FA2', '#66C2A5', '#FC8D62', '#8DA0CB', '#E78AC3']"
+      [dataSource]="piesData"
+      sizeGroup="piesGroup" >
+
+      <dxi-series argumentField="productName" valueField="unitPrice">
+        <dxo-label [visible]="true" format="percent">
+        </dxo-label>
+      </dxi-series>
+      <dxo-legend
+        verticalAlignment="bottom"
+        horizontalAlignment="center"
+        itemTextPosition="right"
+        [rowCount]="2" >
+      </dxo-legend>
+    </dx-pie-chart>
+  </div>
+
+  <div class="top-right">
+    <dx-chart
+      title="Price with Value"
+      palette="Harmony Light"
+      [dataSource]="piesData"
+      class="area-chart" >
+
+      <dxi-series valueField="unitPrice" name="unitPrice">
+      </dxi-series>
+      <dxi-series valueField="quantity" name="quantity">
+      </dxi-series>
+      <dxo-common-series-settings
+        #commonSeries
+        argumentField="productName"
+        [type]="types[0]">
+      </dxo-common-series-settings>
+      <dxo-margin [bottom]="20">
+      </dxo-margin>
+      <dxo-argument-axis [valueMarginsEnabled]="false">
+      </dxo-argument-axis>
+      <dxo-export [enabled]="true">
+      </dxo-export>
+      <dxo-legend verticalAlignment="bottom" horizontalAlignment="center">
+      </dxo-legend>
+    </dx-chart>
+    <div class="options">
+      <div class="caption">Options</div>
+      <div class="option">
+        <span>Series Type</span>
+        <dx-select-box
+          [dataSource]="types"
+          [(value)]="commonSeries.type"
+          [inputAttr]="{ 'aria-label': 'Series Type' }">
+        </dx-select-box>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bottom">
+  <dx-chart id="bar-chart" [dataSource]="piesData" class="bar-chart">
+    <dxi-series
+      argumentField="productName"
+      valueField="unitPrice"
+      name="My Product"
+      type="bar"
+      color="#ffaa66">
     </dxi-series>
-    <dxo-legend
-      verticalAlignment="bottom"
-      horizontalAlignment="center"
-      itemTextPosition="right"
-      [rowCount]="2"
-    >
-    </dxo-legend>
-  </dx-pie-chart>
+  </dx-chart>
 </div>

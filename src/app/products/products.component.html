@@ -1,5 +1,5 @@
+<hr/>
 <div class="page-container">
-  <!-- Add customer icon on the upper right side -->
   <a routerLink="/add-products" class="add-customers-icon"><i class="fas fa-user-plus"></i></a>
 
   <div class="datagrid-container">
@@ -21,38 +21,34 @@
         <ng-template *dxTemplate="let data of 'pager'">
           <div class="dx-page-size">
             <span class="dx-page-size-text">Page Size:</span>
-            <dx-select-box [dataSource]="[10, 20, 50]" [(value)]="data.pageSize"></dx-select-box>
+            <dx-select-box [dataSource]="[10, 20, 50]" [(value)]="data.pageSize">
+            </dx-select-box>
           </div>
           <div class="dx-info">
-            <!-- <span class="dx-info-text">Page <strong>{{ data.pageIndex + 1 }}</strong> of <strong>{{ data.pageCount }}</strong></span>
-            <button class="dx-button dx-button-normal dx-button-text" (click)="prevPage(data.pageIndex)">Previous</button>
-            <button class="dx-button dx-button-normal dx-button-text" (click)="nextPage(data.pageIndex, data.pageCount)">Next</button> -->
           </div>
         </ng-template>
       </dxo-paging>
 
       <dxo-pager
         [showPageSizeSelector]="true"
-        [allowedPageSizes]="[10, 25, 50, 100]"
-      ></dxo-pager>
+        [allowedPageSizes]="[10, 25, 50, 100]">
+      </dxo-pager>
 
       <dxo-search-panel
         [visible]="true"
-        [highlightCaseSensitive]="true"
-      ></dxo-search-panel>
+        [highlightCaseSensitive]="true">
+      </dxo-search-panel>
       
-      <dxo-header-filter [visible]="true"></dxo-header-filter>
+      <dxo-header-filter [visible]="true">
 
-  
-    <!-- <dxi-column dataField="id" dataType="number" [visible]="false">
-    </dxi-column> -->
+      </dxo-header-filter>
+
+
     <dxi-column dataField="productName" dataType="string">
     </dxi-column>
-    <dxi-column dataField="unitPrice" dataType="number" ></dxi-column>
-
-    <!-- <dxi-column dataField="url" dataType="string">
-    </dxi-column> -->
-    
+    <dxi-column dataField="unitPrice" dataType="number" >
+    </dxi-column>
+   
     <dxi-column dataField="url" dataType="string">
       <div *dxTemplate="let data of 'cellTemplate'">
         <img [src]="data.data.url" alt="Product Image" class="product-image">
@@ -65,12 +61,3 @@
     </dxi-column>   
 
   </dx-data-grid>
- 
-
-      <!-- <dxi-column dataField="url" caption="Image" [width]="100">
-      <div *dxTemplate="let data of 'cellTemplate'">
-        <ng-container *ngIf="data.data.url">
-          <img [src]="data.data.url" alt="Product Image" class="product-image">
-        </ng-container>
-      </div>
-    </dxi-column> -->

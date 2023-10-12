@@ -11,6 +11,7 @@ import { Product } from '../models/products.model';
 })
 export class NavMenuComponent implements OnInit {
   piesData: any[] = [];
+  types: string[] = ['splinearea', 'stackedsplinearea', 'fullstackedsplinearea'];
 
   constructor(private productsService: ProductsService) {}
 
@@ -20,9 +21,9 @@ export class NavMenuComponent implements OnInit {
 
   fetchData(): void {
     this.productsService.getItems().subscribe(data => {
-      // Aggregate unit prices from all products
+
       const aggregatedData = data.reduce((result, product) => {
-        return [...result, { productName: product.productName, unitPrice: product.unitPrice }];
+        return [...result, { productName: product.productName, unitPrice: product.unitPrice, quantity: product.quantity }];
       }, []);
 
       this.piesData = aggregatedData;

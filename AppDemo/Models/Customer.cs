@@ -11,7 +11,7 @@ public partial class Customer
     public string? password { get; set; }
     public string? firstName { get; set; } = null!;
     public string? lastName { get; set; } = null!;
-
+    
     public string? city { get; set; }
 
     public string? country { get; set; }

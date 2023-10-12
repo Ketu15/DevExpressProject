@@ -31,8 +31,7 @@ export class OrderListComponent implements OnInit {
     if (event.key && this.fetchData) {
       const updatedOrder = event.oldData as Order;
       const newupdatedOrder = event.newData as Order;
-      const OrderId = event.key.toString(); // Ensure event.key is converted to a string if it's a number
-  
+      const OrderId = event.key.toString(); 
       console.log('Updating customer with ID:', OrderId);
       console.log('Updated customer data:', updatedOrder);
   
@@ -40,7 +39,6 @@ export class OrderListComponent implements OnInit {
         .subscribe(
           (response) => {
             console.log('Update successful', response);
-            // Optionally, update the displayed data to reflect the changes
             this.fetchData();
           },
           (error) => {

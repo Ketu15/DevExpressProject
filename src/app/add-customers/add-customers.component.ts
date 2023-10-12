@@ -11,19 +11,18 @@ import { Router } from '@angular/router';
 })
 export class AddCustomersComponent {
 
-  customersFormData: any = {}; // Object to store form data
+  customersFormData: any = {}; 
 
   constructor(private http: HttpClient, private router: Router) {}
 
 
 
   onSubmit(): void {
-    // Handle form submission here
+   
     this.http.post('https://localhost:7107/api/customers', this.customersFormData).subscribe(
       (response) => {
         console.log('Product added successfully', response);
         this.router.navigate(['customers']);
-        // Optionally, you can reset the form here.
       },
       (error) => {
         console.error('Error adding product', error);
@@ -62,6 +61,6 @@ export class AddCustomersComponent {
   // }
 
   goBack(): void {
-    this.router.navigate(['/customers']); // Adjust the route as needed
+    this.router.navigate(['/customers']); 
   }
 }

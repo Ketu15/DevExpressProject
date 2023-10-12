@@ -1,29 +1,32 @@
-/* .black-border{
-    border:1px solid black
-}
+/* styles.css */
 
-
-app-header{
-    position: fixed;
-    width: 100%;
-    top:0px;
-    height: 4rem;
-    z-index: 2;
-}
-
-main{
-    position: absolute;
-    width: 100%;
-    top: 4rem;
-    z-index: 1;
-}
-
-app-side-nav{
-    position: absolute;
-    left:0rem;
-    width: 250px;
-    height: calc(100vh - 4rem);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    background-color: rgba(34, 34, 34, 1);
-    border-top: 1px solid white;
-} */
+/* Style the toolbar */
+.mat-toolbar {
+    background-color: #1976D2; /* Background color */
+    color: white; /* Text color */
+  }
+  
+  /* Center the title within the toolbar */
+  .app-title {
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  /* Style the sidebar background and text color */
+  .mat-sidenav {
+    background-color: #858282; /* Background color */
+    color: white; /* Text color */
+  }
+  
+  /* Style the sidebar links */
+  .mat-list-item {
+    padding: 10px 20px;
+    transition: background-color 0.3s; /* Add a smooth transition effect */
+  }
+  
+  /* Change link background color on hover */
+  .mat-list-item:hover {
+    background-color: #8e8c8c;
+    cursor: pointer; /* Show a hand cursor on hover */
+  }
+  

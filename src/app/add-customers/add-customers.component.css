@@ -1,60 +1,55 @@
-/* Center the form vertically and horizontally */
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 50vh; /* Ensure the container spans the full viewport height */
+  min-height: 50vh; 
 }
 
 .custom-form {
-  width: 60%; /* Adjust the width as needed */
-  padding: 20px; /* Add padding for spacing inside the form */
-  border: 2px solid #007bff; /* Add a border with a blue color */
-  border-radius: 10px; /* Add rounded corners */
-  background-color: #f5f5f5; /* Set a light background color */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+  width: 60%; 
+  padding: 20px; 
+  border: 2px solid #007bff; 
+  border-radius: 10px; 
+  background-color: #f5f5f5; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
 }
 
-/* Style for the form heading */
 .form-heading {
   text-align: center;
   font-size: 28px;
   margin-bottom: 20px;
-  color: #020a14; /* Set the heading color to blue */
+  color: #020a14; 
 }
 
-/* Style for the button container */
 .button-container {
   display: flex;
-  justify-content: center; /* Center the buttons horizontally */
+  justify-content: center; 
   margin-top: 30px;
 }
 
 .custom-button {
-  padding: 12px 30px; /* Adjust the button padding */
-  border: none; /* Remove the border */
-  border-radius: 20px; /* Increase border radius for rounded buttons */
+  padding: 12px 30px; 
+  border: none; 
+  border-radius: 20px; 
   cursor: pointer;
-  font-size: 20px; /* Adjust the font size */
-  font-weight: bold; /* Add font weight */
-  transition: background-color 0.2s, color 0.2s; /* Add transition for smooth hover effect */
-  margin: 0 10px; /* Add spacing between buttons */
+  font-size: 20px; 
+  font-weight: bold; 
+  transition: background-color 0.2s, color 0.2s; 
+  margin: 0 10px; 
 }
 
-/* Style for the Back button */
 .back-button {
   background-color: #dc3545;
   color: #fff;
 }
 
-/* Style for the Submit button */
 .submit-button {
   background-color: #007bff;
   color: #fff;
 }
 
-/* Add hover effect for buttons */
 .custom-button:hover {
   opacity: 0.9;
 }

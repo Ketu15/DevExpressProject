@@ -74,7 +74,7 @@ constructor(private http: HttpClient, private router: Router,private customersSe
     if (event.key && this.fetchData) {
       const updatedCustomer = event.oldData as CustomerData;
       const newupdatedCustomer = event.newData as CustomerData;
-      const customerId = event.key.toString(); // Ensure event.key is converted to a string if it's a number
+      const customerId = event.key.toString(); 
   
       console.log('Updating customer with ID:', customerId);
       console.log('Updated customer data:', updatedCustomer);
@@ -83,7 +83,6 @@ constructor(private http: HttpClient, private router: Router,private customersSe
         .subscribe(
           (response) => {
             console.log('Update successful', response);
-            // Optionally, update the displayed data to reflect the changes
             this.fetchData();
           },
           (error) => {
@@ -98,14 +97,12 @@ constructor(private http: HttpClient, private router: Router,private customersSe
 
   prevPage(currentPageIndex: number) {
     if (currentPageIndex > 0) {
-      // Go to the previous page
       this.gridData.pageIndex = currentPageIndex - 1;
     }
   }
 
   nextPage(currentPageIndex: number, pageCount: number) {
     if (currentPageIndex < pageCount - 1) {
-      // Go to the next page
       this.gridData.pageIndex = currentPageIndex + 1;
     }
   }

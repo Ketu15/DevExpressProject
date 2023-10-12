@@ -1,32 +1,67 @@
-/* Add this CSS to your styles.css or equivalent file */
 
-.pies-container {
+.charts-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
   margin: auto;
-  width: 800px;
+  width: 1000px;
 }
 
-.pies-container > .pie {
-  width: 400px;
-  float: left;
+.top-left,
+.top-right {
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+  border: 5px solid #ccc;
+  box-shadow: 0 0 5px #aaa;
+  background-color: #f9f9f9;
+  flex: 2;
 }
 
-/* Custom color palette */
+.top-right {
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+  border: 5px solid #ccc;
+  box-shadow: 0 0 5px #aaa;
+  background-color: #f9f9f9;
+  margin-left: 20px;
+}
+
+.bottom {
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+  border: 5px solid #ccc;
+  box-shadow: 0 0 5px #aaa;
+  background-color: #f9f9f9;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.bar-chart {
+  width: 80%; 
+  margin: auto; 
+}
+
 .dx-theme-generic.material.piechart .dxc-series:nth-child(1) {
-  fill: #5E4FA2; /* Dark Purple */
+  fill: #5E4FA2; 
 }
 
 .dx-theme-generic.material.piechart .dxc-series:nth-child(2) {
-  fill: #66C2A5; /* Green */
+  fill: #66C2A5; 
 }
 
 .dx-theme-generic.material.piechart .dxc-series:nth-child(3) {
-  fill: #FC8D62; /* Orange */
+  fill: #FC8D62; 
 }
 
 .dx-theme-generic.material.piechart .dxc-series:nth-child(4) {
-  fill: #8DA0CB; /* Light Purple */
+  fill: #8DA0CB; 
 }
 
 .dx-theme-generic.material.piechart .dxc-series:nth-child(5) {
-  fill: #E78AC3; /* Pink */
+  fill: #E78AC3; 
 }
+
+

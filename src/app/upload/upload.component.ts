@@ -14,11 +14,13 @@ export class UploadComponent {
   constructor(private http: HttpClient) { }
   ngOnInit() {
   }
+
   uploadFile = (files:any) => {
 
     if (files.length === 0) {
       return;
     }
+    
     let fileToUpload = <File>files[0];
     const formData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);
@@ -36,9 +38,6 @@ export class UploadComponent {
       error: (err: HttpErrorResponse) => console.log(err)
     });
   }
-
-
-
 }
 
 

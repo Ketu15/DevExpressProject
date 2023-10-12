@@ -5,22 +5,27 @@
     <label for="productName" class="form-label">Product Name:</label>
     <input type="text" class="form-control" id="productName" name="productName" [(ngModel)]="customersFormData.productName" required>
   </div>
+
   <div class="form-group">
     <label for="unitPrice" class="form-label">Unit Price:</label>
     <input type="number" class="form-control" id="unitPrice" name="unitPrice" [(ngModel)]="customersFormData.unitPrice" required>
   </div>
+
   <div class="form-group">
     <label for="quantity" class="form-label">Quantity:</label>
     <input type="number" class="form-control" id="quantity" name="quantity" [(ngModel)]="customersFormData.quantity" required>
   </div>
+
   <div class="form-group">
     <label for="isDiscontinued" class="form-check-label form-label-large">Is Discontinued:</label>
     <input type="checkbox" class="form-check-input form-check-large" id="isDiscontinued" name="isDiscontinued" [(ngModel)]="customersFormData.isDiscontinued">
   </div>
+
   <div class="form-group">
     <label class="form-label">New Image:</label>
     <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
   </div>
+  
   <div class="button-container">
     <button type="submit" class="btn btn-primary btn-submit">Submit</button>
     <button type="button" class="btn btn-secondary btn-back">Back</button>

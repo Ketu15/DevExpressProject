@@ -1,13 +1,10 @@
-
 <div class="container my-5">
-    <h1 class="mb-3 text-center">Order</h1> <!-- Center the "Order" name -->
+    <h1 class="mb-3 text-center">Order</h1> 
     <hr/>
 
     <table class="table table-bordered table-striped table-hover">
         <thead class="bg-secondary bg-gradient">
             <tr>
-                <!-- <th>Book_id</th> -->
-                <!-- <th>Product id</th> -->
                 <th>Product Name</th>
                 <th>Unit Price</th>
                 <th>Images</th>
@@ -18,7 +15,6 @@
         </thead>
         <tbody>
             <tr *ngFor="let Product of products">
-                <!-- <td>{{ Product.id }}</td> -->
                 <td>{{ Product.productName }}</td>
                 <td>{{ Product.unitPrice }}</td>
                 <td><img [src]="createImgPath(Product.url)" alt="profile picture" style="width:100px; height:100px;"></td>
@@ -39,6 +35,3 @@
         </tbody>
     </table>
 </div>
-
-
-

@@ -2,17 +2,26 @@
 <div class="container custom-3d-container">
   <h2 class="form-heading">Add a Customer</h2>
   <dx-form [formData]="customersFormData" (onSubmit)="onSubmit()" labelLocation="top" [showColonAfterLabel]="true" class="custom-form">
-     <dxi-item dataField="userName" editorType="dxTextBox" editorOptions="{ placeholder: 'User Name' }"></dxi-item>
-    <dxi-item dataField="password" editorType="dxTextBox" editorOptions="{ placeholder: 'Password' }"></dxi-item>
-    <dxi-item dataField="FirstName" editorType="dxTextBox" editorOptions="{ placeholder: 'First Name' }"></dxi-item>
-    <dxi-item dataField="LastName" editorType="dxTextBox" editorOptions="{ placeholder: 'Last Name' }"></dxi-item>
-    <dxi-item dataField="City" editorType="dxTextBox" editorOptions="{ placeholder: 'City' }"></dxi-item>
-    <dxi-item dataField="Country" editorType="dxTextBox" editorOptions="{ placeholder: 'Country' }"></dxi-item>
-    <dxi-item dataField="phone" editorType="dxTextBox" editorOptions="{ placeholder: 'Phone' }"></dxi-item>
+    <dxi-item dataField="userName" editorType="dxTextBox" editorOptions="{ placeholder: 'User Name' }">
+    </dxi-item>
+    <dxi-item dataField="password" editorType="dxTextBox" editorOptions="{ placeholder: 'Password' }">
+    </dxi-item>
+    <dxi-item dataField="FirstName" editorType="dxTextBox" editorOptions="{ placeholder: 'First Name' }">
+    </dxi-item>
+    <dxi-item dataField="LastName" editorType="dxTextBox" editorOptions="{ placeholder: 'Last Name' }">
+    </dxi-item>
+    <dxi-item dataField="City" editorType="dxTextBox" editorOptions="{ placeholder: 'City' }">
+    </dxi-item>
+    <dxi-item dataField="Country" editorType="dxTextBox" editorOptions="{ placeholder: 'Country' }">
+    </dxi-item>
+    <dxi-item dataField="phone" editorType="dxTextBox" editorOptions="{ placeholder: 'Phone' }">
+    </dxi-item>
   </dx-form>
 </div>
 
 <div class="button-container">
-  <dx-button text="Back" type="button" (click)="goBack()" class="custom-button back-button"></dx-button>
-  <dx-button text="Submit" [useSubmitBehavior]="true" (click)="onSubmit()" class="custom-button submit-button"></dx-button>
+  <dx-button text="Back" type="button" (click)="goBack()" class="custom-button back-button">
+  </dx-button>
+  <dx-button text="Submit" [useSubmitBehavior]="true" (click)="onSubmit()" class="custom-button submit-button">
+  </dx-button>
 </div>

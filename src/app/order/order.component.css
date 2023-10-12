@@ -1,16 +1,15 @@
-/* Container with 3D effect */
+
 .custom-3d-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* 100% of the viewport height */
+  height: 100vh; 
   perspective: 1000px;
   transform-style: preserve-3d;
 }
 
-/* Order container with 3D effect */
 .order-container {
-  width: 400px; /* Adjust the width as needed */
+  width: 400px; 
   background-color: #f9f9f9;
   border-radius: 10px;
   padding: 20px;

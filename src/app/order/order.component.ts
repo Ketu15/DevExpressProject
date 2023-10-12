@@ -21,8 +21,8 @@ export class OrderComponent {
     orderDate: new Date(),
     unitPrice: '',
     quantity: 1,
-    // Other order properties
   };
+
   productdata:Product = {
     id:0,
     productName: '',
@@ -88,11 +88,9 @@ export class OrderComponent {
     this.orderdata.product_Id=d.toString();
     this.orderdata.product_Id=this.productdata.productName;
 
-    // Send the order data to the backend to create an order.
     this.http.post<any>('https://localhost:7107/api/orders', this.orderdata).subscribe(
       (data) => {
         this.router.navigate(['order-list']);
-        // Handle the response and any additional actions.
       },  
       
       (error) => {
@@ -103,7 +101,6 @@ export class OrderComponent {
 
   cancelOrder() {
     this.router.navigate(['products']);
-    // Add any logic you want to perform when the order is canceled
     console.log('Order canceled.');
   }
 }

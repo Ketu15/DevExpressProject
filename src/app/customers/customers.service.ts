@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class CustomersService {
  baseApiUrl : String = environment.baseApiUrl;
 
- private apiUrl = 'https://localhost:7107/api/customers'; // Replace with your API URL
+ private apiUrl = 'https://localhost:7107/api/customers';
 
 //private baseApiUrl = 'https://localhost:7107/api/customers ';
 
@@ -24,9 +24,7 @@ export class CustomersService {
       return this.http.get<CustomerData>(this.apiUrl +'/api/customers/' + id);
     }
   
-    // updateCustomer(id: string, updatedCustomer: CustomerData): Observable<CustomerData> {
-    //   return this.http.put<CustomerData>(`${'https://localhost:7107/api/customers'}/${id}`, updatedCustomer);
-    // }
+
     updateCustomer(id: number, updatedCustomerData: CustomerData): Observable<any> {
       debugger
       const url = `https://localhost:7107/api/customers/${id}`;

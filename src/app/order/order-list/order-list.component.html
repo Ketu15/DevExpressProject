@@ -1,8 +1,7 @@
 <hr>
 
 <div class="page-container">
-  <!-- Add order icon on the upper right side -->
-  <!-- <a routerLink="/add-orders" class="add-orders-icon"><i class="fas fa-shopping-cart"></i></a> -->
+
 
   <div class="datagrid-container">
     <dx-data-grid
@@ -23,12 +22,11 @@
         <ng-template *dxTemplate="let data of 'pager'">
           <div class="dx-page-size">
             <span class="dx-page-size-text">Page Size:</span>
-            <dx-select-box [dataSource]="[10, 20, 50]" [(value)]="data.pageSize"></dx-select-box>
+            <dx-select-box [dataSource]="[10, 20, 50]" [(value)]="data.pageSize">
+
+            </dx-select-box>
           </div>
           <div class="dx-info">
-            <!-- <span class="dx-info-text">Page <strong>{{ data.pageIndex + 1 }}</strong> of <strong>{{ data.pageCount }}</strong></span>
-            <button class="dx-button dx-button-normal dx-button-text" (click)="prevPage(data.pageIndex)">Previous</button>
-            <button class="dx-button dx-button-normal dx-button-text" (click)="nextPage(data.pageIndex, data.pageCount)">Next</button> -->
           </div>
         </ng-template>
       </dxo-paging>
@@ -43,14 +41,22 @@
         [highlightCaseSensitive]="true">
       </dxo-search-panel>
 
-      <dxo-header-filter [visible]="true"></dxo-header-filter>
+      <dxo-header-filter [visible]="true">
 
-      <dxi-column dataField="product_Id" caption="Product Name" dataType="string" [allowEditing]="false"></dxi-column>
-      <dxi-column dataField="orderDate" dataType="date"></dxi-column>
-      <dxi-column dataField="unitPrice" dataType="number" [allowEditing]="false"></dxi-column>
-      <dxi-column dataField="quantity" dataType="number"></dxi-column>
-   
-      <!-- Add more columns as needed -->
+      </dxo-header-filter>
+
+      <dxi-column dataField="product_Id" caption="Product Name" dataType="string" [allowEditing]="false">
+
+      </dxi-column>
+      <dxi-column dataField="orderDate" dataType="date">
+
+      </dxi-column>
+      <dxi-column dataField="unitPrice" dataType="number" [allowEditing]="false">
+
+      </dxi-column>
+      <dxi-column dataField="quantity" dataType="number">
+        
+      </dxi-column>
     </dx-data-grid>
   </div>
 </div>
